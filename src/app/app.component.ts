@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { from, fromEvent } from 'rxjs';
 
 @Component({
@@ -8,6 +8,7 @@ import { from, fromEvent } from 'rxjs';
 })
 export class AppComponent implements AfterViewInit {
   title = 'learn-rxjs';
+  @ViewChild('outlet2', {static: false}) public outlet3
 
   arrObj = [
     {number: 1,data: 1}, 
@@ -36,5 +37,10 @@ arrObjObservable$ = from(this.arrObj);
   ngAfterViewInit() {
     fromEvent(document.getElementById('a-id'), 'click').subscribe((data) => {console.log(data);}, 
     error =>{console.log(error);}, ()=>{console.log("completed ");})
+  }
+
+  some(){
+    console.log(this.outlet3.elementRef)
+
   }
 }

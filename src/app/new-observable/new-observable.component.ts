@@ -12,6 +12,11 @@ export class NewObservableComponent implements OnInit {
 
   ngOnInit() {
    const newObservable$ = new Observable<Number>((observer)=>{
+    // for (let i = 0; i <= 5; i++) {
+    //   observer.next(i);
+    // }
+    // observer.complete();
+    // observer.next(1000);
     observer.next(1);
     observer.next(2);
     observer.next(3);
